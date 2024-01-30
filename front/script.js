@@ -10,13 +10,11 @@ document.getElementById("productForm").addEventListener("submit", function (e) {
   fetch("http://localhost:3000/produtos", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${bearerToken}`,
-      // Não adicione o cabeçalho 'Content-Type' aqui
+      Authorization: `Bearer ${bearerToken}`,      
     },
-    body: formData, // Adiciona formData como corpo da requisição
+    body: formData,
   })
-    .then((response) => {
-      // Verifica se a resposta está OK antes de tentar converter para JSON
+    .then((response) => {      
       if (!response.ok) {
         throw new Error(`Erro HTTP: ${response.status}`);
       }
